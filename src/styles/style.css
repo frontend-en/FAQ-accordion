@@ -1,0 +1,266 @@
+@font-face {
+  font-family: "WorkSans";
+  src: url("../assets/fonts/WorkSans-VariableFont_wght") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "WorkSans Italic";
+  src: url("../assets/fonts/WorkSans-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+/* https://piccalil.li/blog/a-modern-css-reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  letter-spacing: -0.05px;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  font-family: "WorkSans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::-moz-list-bullet {
+  list-style-type: none;
+}
+
+summary::marker {
+  display: none;
+}
+
+summary {
+  display: inline-block;
+  font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+  cursor: pointer;
+  color: hsl(292, 42%, 14%);
+  position: relative;
+  width: 100%;
+}
+summary > span {
+  max-width: 225px;
+  display: block;
+  transition: color 0.3s ease-in-out;
+}
+summary > span:hover {
+  color: hsl(281, 83%, 54%);
+}
+@media (min-width: 768px) {
+  summary > span {
+    max-width: 450px;
+  }
+}
+summary + p {
+  font-weight: 400;
+  font-size: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+  line-height: 150%;
+  color: hsl(292, 16%, 49%);
+  letter-spacing: 1.1px;
+  padding-top: 24px;
+}
+
+summary:after {
+  content: url("../assets/images/plus.png");
+  margin-left: 0.3em;
+  display: inline-block;
+  transition: transform 0.5s ease-in-out;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+}
+
+details[open] > summary:after {
+  content: url("../assets/images/minus.png");
+}
+
+summary:focus {
+  outline: 0;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3), inset 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+details[open] summary ~ * {
+  animation: sweep 0.5s ease-in-out;
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+details {
+  display: block;
+  padding: 24px 0;
+}
+details:not(:last-child) {
+  border-bottom: 1px solid hsl(275, 100%, 97%);
+}
+details:last-child {
+  padding-bottom: 0;
+}
+
+body {
+  background-color: hsl(275, 100%, 97%);
+}
+
+header {
+  background-image: url("../assets/images/background-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 232px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  header {
+    background-image: url("../assets/images/background-pattern-desktop.svg");
+    height: 320px;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.accordion {
+  border-radius: 8px;
+  background-color: hsl(0, 0%, 100%);
+  padding: 24px;
+  margin: 24px;
+  margin-top: -90px;
+  width: 600px;
+  min-width: 327px;
+  box-shadow: 0 32px 56px 0 rgba(80, 0, 118, 0.1);
+}
+@media (min-width: 768px) {
+  .accordion {
+    margin-top: -150px;
+    padding: 40px;
+  }
+}
+
+h1 {
+  position: relative;
+  font-size: clamp(2rem, 1.4718rem + 2.2535vw, 3.5rem);
+  padding-left: 48px;
+  margin-bottom: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+}
+h1::before {
+  content: "";
+  background-image: url(../assets/images/icon-star.svg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20.99px;
+  height: 20.99px;
+  background-size: cover;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (min-width: 768px) {
+  h1::before {
+    width: 34.98px;
+    height: 34.98px;
+  }
+}/*# sourceMappingURL=style.css.map */
